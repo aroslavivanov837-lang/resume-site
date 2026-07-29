@@ -1,0 +1,163 @@
+/* ============================================================
+   variables.css — ВСЕ CSS-ПЕРЕМЕННЫЕ
+   Версия 2.0 — полностью оптимизированная
+   ============================================================ */
+
+:root {
+    /* ===== ЦВЕТА ===== */
+    /* Основные брендовые цвета */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --primary-gradient: linear-gradient(135deg, var(--primary), #7c3aed);
+
+    /* Фоновые цвета */
+    --bg: #f0f4fe;
+    --bg-alt: #ffffff;
+    --bg-card: #ffffff;
+    --white: #ffffff;
+
+    /* Текстовые цвета */
+    --text: #1e293b;
+    --text-light: #64748b;
+    --text-white: #ffffff;
+    --secondary: #0b1a33;
+
+    /* Цвета для акцентов и состояний */
+    --accent-success: #22c55e;
+    --accent-warning: #f59e0b;
+    --accent-danger: #ef4444;
+    --accent-info: #3b82f6;
+
+    /* Тёмные цвета */
+    --dark: #0b1a33;
+    --dark-light: #1e293b;
+
+    /* Дополнительные оттенки серого */
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+
+    /* ===== ТЕНИ ===== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow: 0 20px 60px rgba(37, 99, 235, 0.10);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 30px 80px rgba(37, 99, 235, 0.12);
+    --shadow-hover: 0 25px 70px rgba(37, 99, 235, 0.18);
+    --shadow-xl: 0 40px 100px rgba(37, 99, 235, 0.20);
+
+    /* ===== СКРУГЛЕНИЯ ===== */
+    --radius-sm: 8px;
+    --radius: 24px;
+    --radius-lg: 32px;
+    --radius-full: 9999px;
+
+    /* ===== ШРИФТЫ ===== */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Веса шрифтов */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+
+    /* Размеры шрифтов */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 3.8rem;
+
+    /* Высоты строк */
+    --line-height-tight: 1.1;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+
+    /* ===== ОТСТУПЫ ===== */
+    --section-padding: 80px 0;
+    --section-padding-mobile: 60px 0;
+    --container-padding: 0 20px;
+    --container-max-width: 1200px;
+
+    /* ===== ПЕРЕХОДЫ И АНИМАЦИИ ===== */
+    --transition-duration: 0.4s;
+    --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: all var(--transition-duration) var(--transition-timing);
+    --transition-fast: all 0.2s ease;
+    --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* ===== Z-ИНДЕКСЫ ===== */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal: 1040;
+    --z-popover: 1050;
+    --z-tooltip: 1060;
+    --z-preloader: 9999;
+
+    /* ===== БРЕЙКПОИНТЫ ===== */
+    --breakpoint-xs: 0px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400px;
+
+    /* ===== ДОПОЛНИТЕЛЬНЫЕ ПЕРЕМЕННЫЕ ===== */
+    --dark-bg: #0f172a;
+    --dark-card: #1e293b;
+    --dark-text: #e2e8f0;
+    --dark-text-light: #94a3b8;
+
+    --bg-gradient-hero: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    --bg-gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+
+    --avatar-size: 340px;
+    --avatar-size-mobile: 260px;
+    --avatar-size-small: 200px;
+
+    --animation-float-duration: 6s;
+    --animation-spin-duration: 0.8s;
+
+    --navbar-height: 70px;
+    --navbar-bg: rgba(255, 255, 255, 0.85);
+    --navbar-blur: 12px;
+
+    --success: #22c55e;
+    --error: #ef4444;
+    --warning: #f59e0b;
+
+    --btn-primary-bg: var(--primary);
+    --btn-primary-color: white;
+    --btn-primary-hover-bg: var(--primary-dark);
+    --btn-outline-border: var(--primary);
+    --btn-outline-hover-bg: var(--primary);
+    --btn-outline-hover-color: white;
+}
+
+/* ===== ПОДДЕРЖКА ДЛЯ ПОЛЬЗОВАТЕЛЕЙ С ЧУВСТВИТЕЛЬНОСТЬЮ К ДВИЖЕНИЮ ===== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-duration: 0.01ms;
+        --transition: all 0.01ms linear;
+        --transition-fast: all 0.01ms linear;
+        --transition-slow: all 0.01ms linear;
+        --animation-float-duration: 0.01ms;
+        --animation-spin-duration: 0.01ms;
+    }
+}

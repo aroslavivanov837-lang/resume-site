@@ -85,7 +85,7 @@
     "В процессе": "In progress",
     "Языки": "Languages",
     "Русский — родной": "Russian — Native",
-    "Английский — A2": "English — A2",
+    "Английский — B2": "English — B2",
     "Связь": "Contact",
     "Давайте работать вместе": "Let's Work Together",
     "Готов к сотрудничеству и новым проектам": "Open to opportunities and new projects",

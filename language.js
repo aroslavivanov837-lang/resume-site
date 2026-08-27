@@ -215,11 +215,45 @@
         }
     }
 
+    function saveLanguagePreference(language) {
+        try {
+            localStorage.setItem('resume-language', language);
+        } catch (error) {
+            // The language still changes when browser storage is disabled.
+        }
+
+        const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+        document.cookie = 'resume-language=' + language + '; Max-Age=31536000; Path=/; SameSite=Lax' + secure;
+    }
+
+    function updateLanguageToggle(language) {
+        const toggle = document.getElementById('languageToggle');
+        if (!toggle) return;
+
+        const nextLanguage = language === 'en' ? 'ru' : 'en';
+        const label = language === 'en' ? 'Switch to Russian' : 'Переключить на английский';
+        const url = new URL(window.location.href);
+        const text = toggle.querySelector('span');
+
+        url.searchParams.set('lang', nextLanguage);
+        toggle.href = url.pathname + url.search + url.hash;
+        toggle.dataset.language = nextLanguage;
+        toggle.setAttribute('aria-label', label);
+        toggle.setAttribute('title', label);
+        if (text) text.textContent = nextLanguage.toUpperCase();
+
+        toggle.addEventListener('click', function () {
+            saveLanguagePreference(nextLanguage);
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         const language = window.resumeInitialLanguage === 'en' ? 'en' : 'ru';
         document.documentElement.lang = language;
         translateBody(language);
         updateMetadata(language);
+        saveLanguagePreference(language);
+        updateLanguageToggle(language);
         document.documentElement.removeAttribute('data-language-loading');
     });
 }());

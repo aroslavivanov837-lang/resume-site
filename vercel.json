@@ -28,6 +28,10 @@
         {
           "type": "query",
           "key": "lang"
+        },
+        {
+          "type": "cookie",
+          "key": "resume-language"
         }
       ],
       "destination": "/?lang=ru",

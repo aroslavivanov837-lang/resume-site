@@ -9,9 +9,24 @@
     <script>
     (function () {
         var requested = new URLSearchParams(window.location.search).get('lang');
+        var saved = null;
+
+        try {
+            saved = localStorage.getItem('resume-language');
+        } catch (error) {
+            saved = null;
+        }
+
+        if (saved !== 'en' && saved !== 'ru') {
+            var cookieMatch = document.cookie.match(/(?:^|;\s*)resume-language=(en|ru)(?:;|$)/);
+            saved = cookieMatch ? cookieMatch[1] : null;
+        }
+
         var language = requested === 'en' || requested === 'ru'
             ? requested
-            : 'en';
+            : saved === 'en' || saved === 'ru'
+                ? saved
+                : 'en';
 
         window.resumeInitialLanguage = language;
         document.documentElement.lang = language;
@@ -114,6 +129,12 @@
                 <li role="none"><a href="#portfolio" role="menuitem">Портфолио</a></li>
                 <li role="none"><a href="#education" role="menuitem">Образование</a></li>
                 <li role="none"><a href="#contact" role="menuitem" class="btn-primary">Связаться</a></li>
+                <li role="none">
+                    <a href="?lang=en" class="language-toggle" id="languageToggle" role="menuitem" aria-label="Переключить на английский">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span>EN</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>

@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-language-loading>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Иванов Ярослав · Digital-резюме | Junior Marketing Assistant</title>
+
+    <style>html[data-language-loading] body { visibility: hidden; }</style>
+    <script>
+    (function () {
+        var requested = new URLSearchParams(window.location.search).get('lang');
+        var locale = navigator.language || 'ru';
+        var prefersEnglish = /^en(?:-|$)/i.test(locale) || /[-_]US$/i.test(locale);
+        var language = requested === 'en' || requested === 'ru'
+            ? requested
+            : prefersEnglish ? 'en' : 'ru';
+
+        window.resumeInitialLanguage = language;
+        document.documentElement.lang = language;
+        window.setTimeout(function () {
+            document.documentElement.removeAttribute('data-language-loading');
+        }, 1500);
+    }());
+    </script>
 
     <!-- ===== SEO / META ===== -->
     <meta name="description" content="Резюме Ярослава Иванова – Junior Digital Marketing Assistant, веб-разработчик, специалист по SMM и контенту. Ищу работу в digital-маркетинге." />
     <meta name="keywords" content="резюме, digital маркетинг, веб-разработка, SMM, контент-менеджер, Junior, HTML, CSS, JavaScript, Tilda, Figma" />
     <meta name="author" content="Иванов Ярослав Сергеевич" />
     <link rel="canonical" href="https://yaroslav-resume.ru/" />
+    <link rel="alternate" hreflang="ru" href="https://yaroslav-resume.ru/?lang=ru" />
+    <link rel="alternate" hreflang="en" href="https://yaroslav-resume.ru/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://yaroslav-resume.ru/" />
 
     <!-- ===== Open Graph / Соцсети ===== -->
     <meta property="og:title" content="Иванов Ярослав · Digital-резюме" />
@@ -20,7 +41,7 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- ===== Микроразметка Schema.org (Person) ===== -->
-    <script type="application/ld+json">
+    <script id="person-schema" type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -517,6 +538,7 @@
     ПОДКЛЮЧЕНИЕ СКРИПТОВ
     ============================================================ -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="language.js"></script>
     <script src="animations.js"></script>
     <script src="script.js"></script>
 

@@ -9,11 +9,9 @@
     <script>
     (function () {
         var requested = new URLSearchParams(window.location.search).get('lang');
-        var locale = navigator.language || 'ru';
-        var prefersEnglish = /^en(?:-|$)/i.test(locale) || /[-_]US$/i.test(locale);
         var language = requested === 'en' || requested === 'ru'
             ? requested
-            : prefersEnglish ? 'en' : 'ru';
+            : 'en';
 
         window.resumeInitialLanguage = language;
         document.documentElement.lang = language;
